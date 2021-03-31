@@ -76,7 +76,8 @@ for ($i = 0; $i -lt $Groups; $i++){
     $GroupNum = $($i+1)
     Write-Host "Running Group $GroupNum {Start Index: $Start; End Index: $End}..."
 
-    $group = $content | Select-Object -Index ($Start..$End)
+    $group = @()
+    $group += $content | Select-Object -Index ($Start..$End)
     Write-Host "`tItems: $($group.Length)"
     
     $OutputFileName = "$OutputDirectory\Group $GroupNum.txt"
